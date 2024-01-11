@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         rb = GetComponent<Rigidbody>();
         rb.AddRelativeForce(Vector3.forward * forwardForce, ForceMode.Impulse);
         rb.AddRelativeForce(Vector3.up * upForce, ForceMode.Impulse);
@@ -23,5 +24,14 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy")) 
+        {
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
+        }
     }
 }
