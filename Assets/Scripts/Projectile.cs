@@ -9,6 +9,8 @@ public class Projectile : MonoBehaviour
     public Rigidbody rb;
     public float destroyDelay;
 
+    private GameManager gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,8 @@ public class Projectile : MonoBehaviour
         rb.AddRelativeForce(Vector3.up * upForce, ForceMode.Impulse);
 
         Destroy(gameObject, destroyDelay);
+
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -32,6 +36,7 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
             Destroy(collision.gameObject);
+            gameManager.UpdateScore(1);
         }
     }
 }

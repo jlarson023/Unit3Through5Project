@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMove : MonoBehaviour
+public class PowerupSpawn : MonoBehaviour
 {
-    public float moveSpeed;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -15,6 +15,12 @@ public class EnemyMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
+        
     }
+
+    public Vector3 SpawnPosition()
+    {
+
+    }
+
 }
